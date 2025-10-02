@@ -1,8 +1,8 @@
 function Header() {
   return (
-    <>
-      <h1>Test</h1>
-    </>
+    <header>
+      <h1>IKYDO</h1>
+    </header>
   );
 }
 
