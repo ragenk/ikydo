@@ -5,3 +5,10 @@
   margin: 0;
   padding: 0;
 }
+
+#root, body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
