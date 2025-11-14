@@ -1,7 +1,5 @@
 import { useState } from "react";
-/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons"; */
-{/*<FontAwesomeIcon icon={faBars} />*/}
+import MenuOverlay from "./MenuOverlay";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +14,7 @@ function Header() {
           <span></span>
           <span></span>
         </button>
-        <ul className={`nav-links ${isOpen ? "open" : ""}`}>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+        <MenuOverlay isOpen={isOpen} toggleMenu={() => toggleMenu()} />
       </nav>
     </header>
   );
