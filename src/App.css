@@ -4,7 +4,7 @@
 body {
   font-weight: 400;
   font-style: normal;
-  color: rgb(255, 255, 255);  
+  color: rgb(255, 255, 255);
   background: linear-gradient(135deg, #0f1c2e 0%, #112b45 50%, #1a3a5d 100%);
 }
 
@@ -51,14 +51,28 @@ header {
   transition: all 0.4s ease;
 }
 
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 9px; }
-.hamburger span:nth-child(3) { top: 18px; }
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+.hamburger span:nth-child(3) {
+  top: 18px;
+}
 
 /* Animation when open */
-.hamburger.is-active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
-.hamburger.is-active span:nth-child(2) { opacity: 0; }
-.hamburger.is-active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
+.hamburger.is-active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 9px;
+}
 
 /* Mobile menu overlay */
 .mobile-menu-overlay {
@@ -102,8 +116,12 @@ header {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Nav links (mobile by default: hidden in overlay) */
@@ -148,15 +166,13 @@ h1 {
   letter-spacing: 0.3rem;
 }
 
-h2 {  
-  font-family: "Inter", sans-serif;
+h2 {
   font-size: 1.25rem;
   margin: 0.5rem 0;
   font-weight: 400;
 }
 
 p {
-  font-family: "Inter", sans-serif;
   font-size: 1rem;
   margin-top: 0.5rem;
   font-weight: 300;
@@ -166,13 +182,18 @@ p {
 footer {
   width: 100%;
   position: fixed;
-  bottom: 0; 
+  bottom: 0;
   z-index: 1;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 footer > ul {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 700px;
   flex-wrap: wrap;
   gap: 0.5em;
   padding: 0.25em 0;
@@ -215,7 +236,6 @@ footer > ul > li > a:hover svg {
    Desktop / larger screens
 ========================= */
 @media (min-width: 769px) {
-
   /* Hide hamburger */
   .hamburger {
     display: none;
