@@ -150,16 +150,18 @@ h1 {
   letter-spacing: 0.3rem;
 }
 
-h2 {
+h2 {  
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   margin: 0.5rem 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 p {
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   margin-top: 0.5rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 /* Footer */
