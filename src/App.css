@@ -192,8 +192,23 @@ footer > ul > li > a:focus {
 }
 
 footer > ul > li > a:hover svg {
-  color: #aaa;  
   transform: scale(1.1);
+}
+
+.icon-email:hover {
+  color: #ff5733; /* Color especial para email */
+}
+
+.icon-github:hover {
+  color: #6e5494; /* Color especial para GitHub */
+}
+
+.icon-linkedin:hover {
+  color: #0077b5; /* Color especial para LinkedIn */
+}
+
+.icon-whatsapp:hover {
+  color: #25d366; /* Color especial para WhatsApp */
 }
 
 /* =========================

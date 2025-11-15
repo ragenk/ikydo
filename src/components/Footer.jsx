@@ -12,6 +12,7 @@ function Footer() {
       <ul>
         <li>
           <a 
+            className="icon-email"
             href="mailto:aguasvivas3@gmail.com"            
             target="_blank"
             rel="noopener noreferrer"
@@ -22,6 +23,7 @@ function Footer() {
         </li>
         <li>
           <a 
+            className="icon-github"
             href="https://github.com/ragenk"            
             target="_blank"
             rel="noopener noreferrer"
@@ -32,6 +34,7 @@ function Footer() {
         </li>
         <li>
           <a 
+            className="icon-linkedin"
             href="https://www.linkedin.com/in/raguasvivas/"
             target="_blank"
             rel="noopener noreferrer"
@@ -42,6 +45,7 @@ function Footer() {
         </li>
         <li>
           <a 
+            className="icon-whatsapp"
             href="https://wa.me/18094324277"
             target="_blank"
             rel="noopener noreferrer"
