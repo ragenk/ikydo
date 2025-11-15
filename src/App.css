@@ -4,10 +4,8 @@
 body {
   font-weight: 400;
   font-style: normal;
-  color: rgb(255, 255, 255);
-  background: #141e30;
-  background: -webkit-linear-gradient(to right, #243b55, #141e30);
-  background: linear-gradient(to right, #243b55, #141e30);
+  color: rgb(255, 255, 255);  
+  background: linear-gradient(135deg, #0f1c2e 0%, #112b45 50%, #1a3a5d 100%);
 }
 
 .no-scroll {
