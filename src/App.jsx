@@ -1,13 +1,15 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./App.css";
 import Hero from "./sections/Hero";
+import About from "./sections/About";
+import "./App.css";
 
 function App() {
   return (
     <>
       <Header />
       <Hero />
+      <About />
       <Footer />
     </>
   );

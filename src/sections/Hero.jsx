@@ -4,7 +4,7 @@ import "./Hero.css";
 
 function Hero() {
   return (
-    <main className="hero">
+    <main className="hero" id="hero">
       <h1 className="fade-in">IKYDO</h1>
 
       <h2 className="typed-wrapper fade-in delay-1">
