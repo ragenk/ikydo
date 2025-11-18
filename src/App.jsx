@@ -8,8 +8,10 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <About />
+      <div className="snap-container">
+        <Hero />
+        <About />
+      </div>
       <Footer />
     </>
   );

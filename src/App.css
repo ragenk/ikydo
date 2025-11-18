@@ -150,16 +150,6 @@ header {
 }
 
 /* Main content */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 1rem;
-  text-align: center;
-}
-
 h1 {
   font-family: "Michroma", sans-serif;
   font-size: 3rem; /* Mobile-first */

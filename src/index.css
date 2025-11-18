@@ -6,9 +6,45 @@
   padding: 0;
 }
 
-#root, body, html {
+#root,
+body,
+html {
   height: 100%;
   width: 100%;
   font-family: "Inter", sans-serif;
   scroll-behavior: smooth;
+}
+
+.snap-container {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.snap-container > section {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Scroll Snap EN EL BODY */
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  padding-top: 80px; /* <- altura aproximada del header */
+  padding-bottom: 80px; /* <- altura aproximada del footer */
 }
