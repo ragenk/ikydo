@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ReactTyped } from "react-typed";
 import "./About.css";
+import Rafa from "../assets/Rafa-8Bit.png";
 
 function About() {
   const ref = useRef(null);
@@ -18,8 +19,7 @@ function About() {
         });
       },
       {
-        threshold: 0.6, // ajusta cuando consideras "visible" la sección
-        // rootMargin: "0px 0px -20% 0px" // opcional: ajustar el punto de activación
+        threshold: 0.6,
       }
     );
 
@@ -35,6 +35,9 @@ function About() {
 
   return (
     <section className="about" id="about" ref={ref}>
+
+      <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
+
       <h2 className="about-title">About Me</h2>
 
       <div className="about-text">
@@ -46,7 +49,6 @@ function About() {
             loop={false}
           />
         ) : (
-          // placeholder vacío para mantener layout cuando Typed está desmontado
           <p aria-hidden="true" style={{ minHeight: "1.2em" }} />
         )}
       </div>

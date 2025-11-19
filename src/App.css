@@ -5,7 +5,7 @@ body {
   font-weight: 400;
   font-style: normal;
   color: rgb(255, 255, 255);
-  background: linear-gradient(135deg, #0f1c2e 0%, #112b45 50%, #1a3a5d 100%);
+  background: linear-gradient(134deg, #162020 0%, #2b2a2a 100%);
 }
 
 .no-scroll {
@@ -128,7 +128,7 @@ header {
 .nav-links {
   position: absolute;
   transform: translateY(0);
-  font-family: "Michroma", sans-serif;
+  font-family: "Press Start 2P", system-ui;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -151,7 +151,6 @@ header {
 
 /* Main content */
 h1 {
-  font-family: "Michroma", sans-serif;
   font-size: 3rem; /* Mobile-first */
   letter-spacing: 0.3rem;
 }
@@ -192,8 +191,9 @@ footer > ul {
 }
 
 footer > ul > li > a {
-  color: white;
-  display: inline-block; /* Para que transform funcione en svg */
+  display: flex; /* Flex para centrar contenido */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
   transition: transform 0.3s ease, color 0.3s ease;
 }
 

@@ -14,21 +14,21 @@
 
 /* Typography */
 .hero h1 {
-  font-family: "Michroma", sans-serif;
-  font-size: 3rem; /* Mobile-first */
+  font-family: "Press Start 2P", system-ui;
+  font-size: 3.75rem; /* Mobile-first */
   letter-spacing: 0.3rem;
   color: #f5f7fa; /* blanco suave */
 }
 
 .hero h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
   font-weight: 400;
   color: #82d4ff;
 }
 
 .hero p {
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin-top: 0.5rem;
   font-weight: 300;
   max-width: 500px;
