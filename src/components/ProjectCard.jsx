@@ -1,5 +1,6 @@
 function ProjectCard() {
-  return <></>;
+  return <>
+  </>;
 }
 
 export default ProjectCard;

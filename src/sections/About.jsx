@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ReactTyped } from "react-typed";
 import "./About.css";
 import Rafa from "../assets/Rafa-8Bit.png";
@@ -28,10 +28,9 @@ function About() {
   }, []);
 
   const fullText =
-    `<p>Hi, I'm Rafael, or Ikydo online. I'm a Front-End developer with a clean and minimalistic approach to building user experiences.</p>
-    <p>My journey started back in 2004, when I took my first web development course. I later graduated as an Electromechanical Engineer (Electronics) at UASD.</p>
-    <p>I currently work with WordPress and Shopify, and I’m specializing in React.</p>
-    <p>Outside development, I'm a gamer, anime fan, tech lover, crypto curious and now deeply into AI.</p>`;
+    `<p>Hi, I'm Rafael, or Ikydo online. I’m a Front-End developer with experience building professional websites using WordPress, Shopify, and React.</p>
+    <p>My work also covers technical infrastructure, including domain setup, business email configuration, and website migration.</p>
+    <p>I create automation workflows with n8n that help businesses streamline operations through smart and efficient integrations.</p>`;
 
   return (
     <section className="about" id="about" ref={ref}>

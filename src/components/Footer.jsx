@@ -1,11 +1,3 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faGithub,
-//   faLinkedin,
-//   faWhatsapp,
-// } from "@fortawesome/free-brands-svg-icons";
-// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 function Footer() {
   return (
     <footer>
@@ -19,7 +11,6 @@ function Footer() {
             aria-label="Email"
             >
               <i className="nes-icon gmail is-medium"></i>
-              {/* <FontAwesomeIcon icon={faEnvelope} /> */}
           </a>
         </li>
         <li>
@@ -31,7 +22,6 @@ function Footer() {
             aria-label="GitHub"
             >              
               <i className="nes-icon github is-medium"></i>
-              {/* <FontAwesomeIcon icon={faGithub} /> */}
           </a>
         </li>
         <li>
@@ -43,7 +33,6 @@ function Footer() {
             aria-label="LinkedIn"
             >              
               <i className="nes-icon linkedin is-medium"></i>
-              {/* <FontAwesomeIcon icon={faLinkedin} /> */}
           </a>
         </li>
         <li>
@@ -55,7 +44,6 @@ function Footer() {
             aria-label="WhatsApp"
             >
               <i className="nes-icon whatsapp is-medium"></i>
-              {/* <FontAwesomeIcon icon={faWhatsapp} /> */}
           </a>
         </li>
       </ul>

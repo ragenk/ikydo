@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactTyped } from "react-typed";
 import "./Hero.css";
 
@@ -11,9 +10,10 @@ function Hero() {
         <ReactTyped
           strings={[
             "Front-End Developer",
+            "WordPress and Shopify Specialist",
             "React Developer",
-            "WordPress Expert",
-            "Shopify E-commerce Builder",
+            "Automation Builder (n8n)",
+            "Technical Infrastructure Expert",
           ]}
           typeSpeed={50}
           backSpeed={30}
@@ -22,7 +22,7 @@ function Hero() {
       </h2>
 
       <p className="fade-in delay-2">
-        Building seamless and modern web experiences.
+        Building modern websites, technical solutions, and smart automations.
       </p>
     </section>
   );

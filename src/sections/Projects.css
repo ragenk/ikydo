@@ -1,0 +1,11 @@
+.projects {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  max-width: 900px;
+}
