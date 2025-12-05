@@ -52,3 +52,29 @@ section {
   padding-top: 80px; /* <- altura aproximada del header */
   padding-bottom: 80px; /* <- altura aproximada del footer */
 }
+
+.pixel-frame {
+  margin-top: 1rem;
+  display: inline-block;
+  background: #cfd8e3; /* coral background */
+  padding: 4px 8px;
+  border: 4px solid #cfd8e3; /* same color as background */
+  position: relative;
+}
+
+.pixel-frame::before,
+.pixel-frame::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #cfd8e3;
+}
+
+.pixel-frame::before {
+  top: -6px;
+}
+.pixel-frame::after {
+  bottom: -6px;
+}

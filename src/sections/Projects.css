@@ -1,11 +1,82 @@
 .projects {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 1rem;
-  text-align: center;
+  margin: 0 auto;
   padding: 4rem 1.5rem;
   max-width: 900px;
+}
+
+.project-card {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.projects h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #82d4ff;
+}
+
+.project-title {
+  font-size: 0.75rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  color: #cfd8e3;
+}
+
+.project-description {
+  font-size: 0.5rem;
+  color: #cfd8e3;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  background: #1b6085; /* coral background */
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.5rem;
+  border: 4px solid #1b6085; /* same color as background */
+  position: relative;
+}
+
+/* pixel corners */
+.badge::before,
+.badge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #1b6085;
+}
+
+.badge::before {
+  top: -6px;
+}
+
+.badge::after {
+  bottom: -6px;
+}
+
+.project-image {
+  width: 150px;
 }
