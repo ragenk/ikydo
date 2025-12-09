@@ -1,16 +1,44 @@
-# React + Vite
+# ikydo.dev Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pixel-styled personal portfolio built with React and Vite. The site introduces Rafael (Ikydo) through animated hero messaging, a typewriter-style About section, and a horizontally scrolling showcase of recent client projects.
 
-Currently, two official plugins are available:
+## Features
+- **Typed hero headlines:** Rotating role descriptions powered by [`react-typed`](https://www.npmjs.com/package/react-typed) to highlight areas of expertise.
+- **Mobile navigation overlay:** Hamburger menu rendered via a portal to `#modal-root` for smooth in-page navigation without scrolling the underlying content.
+- **About section with animated copy:** Intersection-observer driven text that types out when the section comes into view.
+- **Project carousel:** Scrollable project cards with pixel indicators sourced from `src/data/projects.js` and thumbnails in `src/assets/projects/`.
+- **Retro styling:** NES.css, Google Fonts, and custom CSS deliver an arcade-inspired aesthetic with snap-scrolling sections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [`react-typed`](https://www.npmjs.com/package/react-typed) for the hero and About animations
+- NES.css + custom CSS for retro UI elements
 
-## React Compiler
+## Prerequisites
+- Node.js 18+ and npm
+- Ensure `index.html` contains both `#root` **and** `#modal-root` elements (the mobile menu overlay mounts into `#modal-root`).
+- Project thumbnails referenced in `src/data/projects.js` should exist under `src/assets/projects/`.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup & Scripts
+Install dependencies:
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+Start a dev server:
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Create an optimized production build:
+```bash
+npm run build
+```
+
+Run linting:
+```bash
+npm run lint
+```
+
+## Licensing & Credits
+If you plan to distribute this project publicly, add your license of choice (none is currently specified). The retro styling references [NES.css](https://nostalgic-css.github.io/NES.css/) and a Google Font; please review their respective licenses for compliance.
