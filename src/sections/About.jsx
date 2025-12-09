@@ -34,11 +34,11 @@ function About() {
 
   return (
     <section className="about" id="about" ref={ref}>
+
+      <h2 className="about-title">About Me</h2>
       <div className="about-me-pic-container  pixel-frame">
         <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
       </div>
-
-      <h2 className="about-title">About Me</h2>
 
       <div className="about-text">
         {startTyping ? (

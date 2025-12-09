@@ -1,42 +1,62 @@
 .projects {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+.projects-container {
+  width: 100%;
+  height: calc(100% - 4rem);
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none;
+}
+.projects-container::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  padding: 2rem;
+  height: 100%;
+  scroll-snap-align: start;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  padding: 4rem 1rem;
-  max-width: 900px;
+  gap: 1rem;
+
+  transition: transform 0.18s;
+  background: transparent;
 }
 
-.project-card {
-  margin: 1rem 0;
-  padding: 1.5rem;
-  width: 100%;
-  transition: transform 0.2s;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.projects h2 {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #82d4ff;
-}
-
+/* Tipografía */
 .project-title {
-  font-size: 0.75rem;
-  font-weight: 300;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
   color: #cfd8e3;
 }
 
 .project-description {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   color: #cfd8e3;
 }
 
@@ -44,21 +64,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  font-size: 0.6rem;
-  margin-top: 0.5rem;
 }
 
 .badge {
   display: inline-block;
-  background: #1b6085; /* coral background */
+  background: #1b6085;
   color: white;
   padding: 4px 8px;
   font-size: 0.5rem;
-  border: 4px solid #1b6085; /* same color as background */
+  border: 4px solid #1b6085;
   position: relative;
 }
 
-/* pixel corners */
 .badge::before,
 .badge::after {
   content: "";
@@ -68,15 +85,44 @@
   height: 6px;
   background: #1b6085;
 }
-
 .badge::before {
   top: -6px;
 }
-
 .badge::after {
   bottom: -6px;
 }
 
 .project-image {
-  width: 150px;
+  width: 100%;
+}
+
+.pixel-indicators {
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.pixel-indicators .dot {
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;
+  background: #0d3a52;
+  border: 2px solid #1b6085;
+}
+
+.pixel-indicators .dot.active {
+  background: #82d4ff;
+  border-color: #82d4ff;
+}
+
+@media (min-width: 768px) {
+  .project-title {
+    font-size: 0.85rem;
+  }
+  .project-description {
+    font-size: 0.8rem;
+  }
+  .project-image {
+    max-width: 180px;
+  }
 }

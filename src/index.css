@@ -14,6 +14,8 @@ html {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
 }
 
 .snap-container {
@@ -31,15 +33,6 @@ html {
   justify-content: center;
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
 /* Scroll Snap EN EL BODY */
 body {
   scroll-snap-type: y mandatory;
@@ -54,11 +47,10 @@ section {
 }
 
 .pixel-frame {
-  margin-top: 1rem;
   display: inline-block;
-  background: #cfd8e3; /* coral background */
+  background: #cfd8e3;
   padding: 4px 8px;
-  border: 4px solid #cfd8e3; /* same color as background */
+  border: 4px solid #cfd8e3;
   position: relative;
 }
 

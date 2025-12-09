@@ -19,6 +19,24 @@ const projects = [{
     technologies: ['Shopify', 'Shopify Apps', 'HTML/CSS', 'Chatbot Integration', 'Email Marketing'],
     link: 'https://joelfishtranshipper.com/',
     thumbnail: joelfishImg
+},{
+    id: 3,
+    year: 2024,
+    name: 'Joel Fish Transhipper',
+    description: 'Completely redesigned an existing Shopify store from scratch, improving layout, product presentation, and overall UX. Configured payment gateways, implemented a chatbot, and set up customer email capture for newsletters, campaigns, and promotions.',
+    status: 'Completed',
+    technologies: ['Shopify', 'Shopify Apps', 'HTML/CSS', 'Chatbot Integration', 'Email Marketing'],
+    link: 'https://joelfishtranshipper.com/',
+    thumbnail: joelfishImg
+},{
+    id: 4,
+    year: 2024,
+    name: 'Joel Fish Transhipper',
+    description: 'Completely redesigned an existing Shopify store from scratch, improving layout, product presentation, and overall UX. Configured payment gateways, implemented a chatbot, and set up customer email capture for newsletters, campaigns, and promotions.',
+    status: 'Completed',
+    technologies: ['Shopify', 'Shopify Apps', 'HTML/CSS', 'Chatbot Integration', 'Email Marketing'],
+    link: 'https://joelfishtranshipper.com/',
+    thumbnail: joelfishImg
 },
 ];
 
