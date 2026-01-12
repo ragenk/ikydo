@@ -13,7 +13,6 @@ function Hero() {
             "WordPress and Shopify Specialist",
             "React Developer",
             "Automation Builder (n8n)",
-            "Technical Infrastructure Expert",
           ]}
           typeSpeed={50}
           backSpeed={30}
