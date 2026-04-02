@@ -8,6 +8,7 @@ function Projects() {
   const sectionRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -49,6 +50,7 @@ function Projects() {
 
     const safeIndex = Math.max(0, Math.min(index, projects.length - 1));
     setCurrentIndex(safeIndex);
+    setShowHint(false);
   };
 
   const projectCards = projects.map((project) => (
@@ -82,6 +84,10 @@ function Projects() {
           />
         ))}
       </div>
+
+      {showHint && (
+        <p className="carousel-hint" aria-hidden="true">◄ scroll ►</p>
+      )}
 
     </section>
   );

@@ -23,6 +23,22 @@ function Hero() {
       <p className="fade-in delay-2">
         Building modern websites, technical solutions, and smart automations.
       </p>
+
+      <a
+        href="#projects"
+        className="pixel-btn hero-cta fade-in delay-3"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        INSERT COIN / VIEW PROJECTS
+      </a>
+
+      <div className="scroll-hint blink" aria-hidden="true">
+        <span className="scroll-hint-label">PRESS START TO SCROLL</span>
+        <span className="scroll-hint-arrow">▼</span>
+      </div>
     </section>
   );
 }
