@@ -1,0 +1,131 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  gap: 1rem;
+  background-color: var(--nes-secondary); /* Alternating color */
+  border-top: 4px solid var(--nes-text);
+  border-bottom: 4px solid var(--nes-text);
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  color: var(--nes-text);
+  text-align: center;
+  text-shadow: 4px 4px 0px var(--nes-bg);
+}
+
+.contact-subtitle {
+  font-size: 0.6rem;
+  color: var(--nes-text);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-form-wrapper {
+  width: 100%;
+  max-width: 560px;
+  background-color: var(--nes-bg);
+  padding: 1.5rem;
+  /* Pixel Border */
+  box-shadow: 
+    inset -4px -4px 0px 0px rgba(0,0,0,0.8),
+    4px 0 0 0 var(--nes-text),
+    -4px 0 0 0 var(--nes-text),
+    0 -4px 0 0 var(--nes-text),
+    0 4px 0 0 var(--nes-text);
+}
+
+/* Form layout */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.6rem;
+  color: var(--nes-warning);
+}
+
+/* Pixel Input */
+.pixel-input {
+  font-family: inherit;
+  font-size: 0.6rem;
+  background-color: #000;
+  color: var(--nes-text);
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  box-shadow: 
+    inset -2px -2px 0px 0px rgba(255,255,255,0.2),
+    inset 2px 2px 0px 0px rgba(0,0,0,0.8),
+    2px 0 0 0 var(--nes-text),
+    -2px 0 0 0 var(--nes-text),
+    0 -2px 0 0 var(--nes-text),
+    0 2px 0 0 var(--nes-text);
+  text-transform: uppercase;
+}
+
+.pixel-input:focus {
+  background-color: #111;
+  box-shadow: 
+    inset -2px -2px 0px 0px rgba(255,255,255,0.2),
+    inset 2px 2px 0px 0px rgba(0,0,0,0.8),
+    2px 0 0 0 var(--nes-warning),
+    -2px 0 0 0 var(--nes-warning),
+    0 -2px 0 0 var(--nes-warning),
+    0 2px 0 0 var(--nes-warning);
+}
+
+.contact-submit {
+  align-self: flex-end;
+  font-family: inherit;
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+/* Sent state */
+.contact-sent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.contact-sent p {
+  font-size: 0.75rem;
+  color: var(--nes-success);
+}
+
+@media (min-width: 768px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+  }
+
+  .pixel-input {
+    font-size: 0.75rem;
+  }
+
+  .contact-submit {
+    font-size: 0.75rem;
+  }
+}

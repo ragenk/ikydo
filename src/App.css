@@ -4,8 +4,8 @@
 body {
   font-weight: 400;
   font-style: normal;
-  color: rgb(255, 255, 255);
-  background: linear-gradient(134deg, #162020 0%, #2b2a2a 100%);
+  color: var(--nes-text);
+  background: var(--nes-bg);
 }
 
 .no-scroll {
@@ -24,9 +24,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: var(--nes-text);
   padding: 1rem 2rem;
   position: fixed;
+  z-index: 100;
 }
 
 /* Hamburger icon */
@@ -42,11 +43,11 @@ header {
 }
 
 .hamburger span {
-  background: rgb(255, 255, 255);
+  background: var(--nes-text);
   position: absolute;
   height: 3px;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 0; /* remove border radius for pixel look */
   left: 0;
   transition: all 0.4s ease;
 }
@@ -78,7 +79,7 @@ header {
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: var(--nes-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,14 +95,15 @@ header {
 }
 
 .mobile-menu a {
-  color: white;
-  font-size: 1.8rem;
+  color: var(--nes-text);
+  font-size: 1.5rem;
   text-decoration: none;
+  text-transform: uppercase;
   transition: color 0.2s ease;
 }
 
 .mobile-menu a:hover {
-  color: #aaa;
+  color: var(--nes-warning);
 }
 
 .close-btn {
@@ -113,6 +115,9 @@ header {
   cursor: pointer;
   z-index: 9999;
   animation: fadeIn 1s ease;
+  color: var(--nes-text);
+  font-family: inherit;
+  font-size: 1.5rem;
 }
 
 @keyframes fadeIn {
@@ -128,7 +133,7 @@ header {
 .nav-links {
   position: absolute;
   transform: translateY(0);
-  font-family: "Press Start 2P", system-ui;
+  font-family: "Press Start 2P", system-ui, monospace;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -145,27 +150,32 @@ header {
 }
 
 .nav-links a {
-  color: white;
+  color: var(--nes-text);
   text-decoration: none;
+}
+.nav-links a:hover {
+  color: var(--nes-warning);
 }
 
 /* Main content */
 h1 {
   font-size: 3rem; /* Mobile-first */
   letter-spacing: 0.3rem;
+  text-shadow: 4px 4px 0px var(--nes-secondary);
 }
 
 h2 {
   font-size: 1rem;
   margin: 0.5rem 0;
   font-weight: 400;
-  color: #82d4ff;
+  color: var(--nes-warning);
 }
 
 p {
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin-top: 0.5rem;
   font-weight: 300;
+  line-height: 1.5;
 }
 
 /* Footer */
@@ -173,10 +183,12 @@ footer {
   width: 100%;
   position: fixed;
   bottom: 0;
-  z-index: 1;
+  z-index: 100;
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: center;
+  background-color: var(--nes-bg);
+  border-top: 4px solid var(--nes-text);
 }
 
 footer > ul {
@@ -195,32 +207,33 @@ footer > ul > li > a {
   display: flex; /* Flex para centrar contenido */
   justify-content: center; /* Centrado horizontal */
   align-items: center; /* Centrado vertical */
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.1s ease, color 0.1s ease;
+  color: var(--nes-text);
 }
 
 footer > ul > li > a:focus {
-  outline: 2px solid white;
-  outline-offset: 2px;
+  outline: 4px solid var(--nes-warning);
+  outline-offset: 4px;
 }
 
-footer > ul > li > a:hover svg {
-  transform: scale(1.1);
+footer > ul > li > a:hover {
+  transform: translate(2px, 2px);
 }
 
 .icon-email:hover {
-  color: #ff5733; /* Color especial para email */
+  color: var(--nes-primary); 
 }
 
 .icon-github:hover {
-  color: #6e5494; /* Color especial para GitHub */
+  color: var(--nes-warning); 
 }
 
 .icon-linkedin:hover {
-  color: #0077b5; /* Color especial para LinkedIn */
+  color: var(--nes-secondary); 
 }
 
 .icon-whatsapp:hover {
-  color: #25d366; /* Color especial para WhatsApp */
+  color: var(--nes-success); 
 }
 
 /* =========================
@@ -239,6 +252,7 @@ footer > ul > li > a:hover svg {
     flex-direction: row;
     background: none;
     padding: 0;
+    font-size: 1rem;
   }
 
   h1 {

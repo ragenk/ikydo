@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ReactTyped } from "react-typed";
 import "./About.css";
-import Rafa from "../assets/Rafa-8Bit.png";
+import Rafa from "../assets/Rafa-8Bit.png?w=300&format=webp";
 
 function About() {
   const ref = useRef(null);
@@ -28,24 +28,25 @@ function About() {
   }, []);
 
   const fullText =
-    `<p>Hi, I'm Rafael, or Ikydo online. I’m a Front-End developer with experience building professional websites using WordPress, Shopify, and React.</p>
-    <p>My work also covers technical infrastructure, including domain setup, business email configuration, and website migration.</p>
-    <p>I create automation workflows with n8n that help businesses streamline operations through smart and efficient integrations.</p>`;
+    `<p>HI, I'M RAFAEL, OR IKYDO ONLINE. I’M A FRONT-END DEVELOPER WITH EXPERIENCE BUILDING PROFESSIONAL WEBSITES USING WORDPRESS, SHOPIFY, AND REACT.</p>
+    <p>MY WORK ALSO COVERS TECHNICAL INFRASTRUCTURE, INCLUDING DOMAIN SETUP, BUSINESS EMAIL CONFIGURATION, AND WEBSITE MIGRATION.</p>
+    <p>I CREATE AUTOMATION WORKFLOWS WITH N8N THAT HELP BUSINESSES STREAMLINE OPERATIONS THROUGH SMART AND EFFICIENT INTEGRATIONS.</p>`;
 
   return (
     <section className="about" id="about" ref={ref}>
 
-      <h2 className="about-title">About Me</h2>
-      <div className="about-me-pic-container  pixel-frame">
+      <div className="about-me-pic-container pixel-frame">
         <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
       </div>
 
-      <div className="about-text">
+      <div className="pixel-frame about-text">
+        <h2 className="title">ABOUT ME</h2>
         {startTyping ? (
           <ReactTyped
             strings={[fullText]}
             typeSpeed={15}
-            showCursor={false}
+            showCursor={true}
+            cursorChar="&#9608;"
             loop={false}
           />
         ) : (
