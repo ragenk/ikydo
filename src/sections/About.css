@@ -5,40 +5,140 @@
   align-items: center;
   margin: 0 auto;
   padding: 4rem 1rem;
-  max-width: 900px;
+  max-width: 1000px;
   background-color: var(--nes-bg);
-  gap: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Typography */
+/* ── Boss Encounter Warning ── */
+.boss-warning {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--nes-primary);
+  color: var(--nes-text);
+  padding: 1rem 2rem;
+  z-index: 10;
+  border: 4px solid var(--nes-text);
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 0 20px rgba(229, 37, 33, 0.6);
+  pointer-events: none;
+}
 
-.about h2 {
-  font-size: 1rem;
-  font-weight: 400;
+.boss-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .boss-area {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+/* ── Boss Sprite & Stats ── */
+.boss-sprite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+}
+
+.boss-sprite-container.slide-in {
+  animation: slideInFromLeft 0.5s steps(10, end) forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.boss-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 200px;
+}
+
+.boss-name {
+  font-size: 0.6rem;
+  color: var(--nes-text);
+  text-shadow: 2px 2px 0 var(--nes-secondary);
+}
+
+.boss-title {
+  font-size: 0.45rem;
   color: var(--nes-warning);
 }
 
-.about p {
-  font-size: 0.7rem;
-  font-weight: 300;
-  color: var(--nes-text);
-  margin-bottom: 1rem;
-  line-height: 1.8;
+/* ── Boss Health Bar ── */
+.health-bar-container {
+  width: 100%;
+  height: 12px;
+  background-color: #333;
+  border: 2px solid var(--nes-text);
+  position: relative;
 }
 
-.about-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.health-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--nes-success);
+  box-shadow: inset -2px 0 0 var(--nes-bg);
 }
 
+.health-bar-fill.fill-up {
+  animation: fillHealth 1.2s steps(20, end) 0.5s forwards;
+}
+
+@keyframes fillHealth {
+  to { width: 100%; }
+}
+
+.about-me-pic-container {
+  padding: 0.5rem;
+  background-color: var(--nes-bg);
+  box-shadow: 4px 4px 0 var(--nes-primary);
+}
+
+.about-me-pic {
+  width: 150px;
+  image-rendering: pixelated;
+  display: block;
+  animation: bossIdle 2s infinite ease-in-out;
+}
+
+@keyframes bossIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── Dialogue Box (System Log) ── */
 .about-text {
   width: 100%;
-  max-width: 700px;
-  line-height: 1.7;
+  max-width: 600px;
+  min-height: 250px;
+  padding: 1.5rem !important;
   opacity: 0;
-  animation: stepUp 0.4s steps(4, end) forwards;
+}
+
+.about-text.fade-in-boss {
+  animation: stepUp 0.4s steps(4, end) 1.2s forwards;
 }
 
 .about-text .title {
@@ -52,30 +152,15 @@
   margin: 0;
 }
 
-.about-me-pic-container {
-  padding: 0.5rem;
-  background-color: var(--nes-bg);
+.about p {
+  font-size: 0.7rem;
+  color: var(--nes-text);
+  margin-bottom: 1rem;
+  line-height: 1.8;
 }
 
-.about-me-pic {
-  width: 150px;
-  image-rendering: pixelated;
-  display: block;
-}
-
-/* delays opcionales */
-.delay-1 {
-  animation-delay: 0.3s;
-}
-
-/* step-up keyframe */
-@keyframes stepUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@media (min-width: 768px) {
+  .boss-name { font-size: 0.8rem; }
+  .boss-title { font-size: 0.6rem; }
+  .about-me-pic { width: 200px; }
 }
