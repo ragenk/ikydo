@@ -1,7 +1,14 @@
 import { ReactTyped } from "react-typed";
+import { soundManager } from "../utils/soundManager";
 import "./Hero.css";
 
 function Hero() {
+  const handleCtaClick = (e) => {
+    e.preventDefault();
+    soundManager.playCoin();
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="hero" id="hero">
       <h1 className="fade-in">IKYDO</h1>
@@ -27,10 +34,7 @@ function Hero() {
       <a
         href="#projects"
         className="pixel-btn hero-cta fade-in delay-3"
-        onClick={(e) => {
-          e.preventDefault();
-          document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-        }}
+        onClick={handleCtaClick}
       >
         INSERT COIN / VIEW PROJECTS
       </a>
