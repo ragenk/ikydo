@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ReactTyped } from "react-typed";
+import { soundManager } from "../utils/soundManager";
 import "./About.css";
 import Rafa from "../assets/Rafa-8Bit.png?w=300&format=webp";
 
@@ -15,6 +16,7 @@ function About() {
           if (entry.isIntersecting) {
             setStartTyping(true);
             setIsEncounter(true);
+            soundManager.playBossSiren();
           } else {
             setStartTyping(false);
             setIsEncounter(false);
@@ -66,6 +68,7 @@ function About() {
               showCursor={true}
               cursorChar="&#9608;"
               loop={false}
+              onStringTyped={() => soundManager.playBlip()}
             />
           ) : (
             <p aria-hidden="true" style={{ minHeight: "1.2em" }} />
