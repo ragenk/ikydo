@@ -6,20 +6,23 @@ import Rafa from "../assets/Rafa-8Bit.png?w=300&format=webp";
 function About() {
   const ref = useRef(null);
   const [startTyping, setStartTyping] = useState(false);
+  const [isEncounter, setIsEncounter] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setStartTyping(true);    // enter: start typing (mount)
+            setStartTyping(true);
+            setIsEncounter(true);
           } else {
-            setStartTyping(false);   // leave: stop typing (unmount)
+            setStartTyping(false);
+            setIsEncounter(false);
           }
         });
       },
       {
-        threshold: 0.6,
+        threshold: 0.5,
       }
     );
 
@@ -34,24 +37,40 @@ function About() {
 
   return (
     <section className="about" id="about" ref={ref}>
+      {isEncounter && (
+        <div className="boss-warning blink">
+          <span>WARNING: CHALLENGER APPROACHING</span>
+        </div>
+      )}
 
-      <div className="about-me-pic-container pixel-frame">
-        <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
-      </div>
+      <div className="boss-area">
+        <div className={`boss-sprite-container ${isEncounter ? "slide-in" : ""}`}>
+          <div className="boss-stats">
+            <span className="boss-name">RAFAEL (IKYDO)</span>
+            <div className="health-bar-container">
+              <div className={`health-bar-fill ${isEncounter ? "fill-up" : ""}`}></div>
+            </div>
+            <span className="boss-title">LVL 99 DEVELOPER</span>
+          </div>
+          <div className="about-me-pic-container pixel-frame">
+            <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
+          </div>
+        </div>
 
-      <div className="pixel-frame about-text">
-        <h2 className="title">ABOUT ME</h2>
-        {startTyping ? (
-          <ReactTyped
-            strings={[fullText]}
-            typeSpeed={15}
-            showCursor={true}
-            cursorChar="&#9608;"
-            loop={false}
-          />
-        ) : (
-          <p aria-hidden="true" style={{ minHeight: "1.2em" }} />
-        )}
+        <div className={`pixel-frame about-text ${isEncounter ? "fade-in-boss" : ""}`}>
+          <h2 className="title">SYSTEM LOG</h2>
+          {startTyping ? (
+            <ReactTyped
+              strings={[fullText]}
+              typeSpeed={15}
+              showCursor={true}
+              cursorChar="&#9608;"
+              loop={false}
+            />
+          ) : (
+            <p aria-hidden="true" style={{ minHeight: "1.2em" }} />
+          )}
+        </div>
       </div>
     </section>
   );
