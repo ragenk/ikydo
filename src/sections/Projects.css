@@ -27,7 +27,6 @@
   gap: 2rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
 
   padding: 0 1rem;
   margin: 0;

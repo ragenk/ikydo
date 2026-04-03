@@ -11,25 +11,33 @@ function Projects() {
   const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
+    const section = sectionRef.current;
     const container = containerRef.current;
-    if (!container) return;
+    if (!section || !container) return;
 
     const handleWheel = (e) => {
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+      const rect = section.getBoundingClientRect();
+      const isVisible = Math.abs(rect.top) < window.innerHeight * 0.1;
 
       if (!isVisible) return;
-      
-      e.preventDefault();
 
-      const MULT = 1.5;
-      container.scrollLeft += e.deltaY * MULT;
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      const isAtStart = scrollLeft <= 0;
+      const isAtEnd = Math.ceil(scrollLeft + clientWidth) >= scrollWidth;
+
+      const scrollingUp = e.deltaY < 0;
+      const scrollingDown = e.deltaY > 0;
+
+      if (isAtStart && scrollingUp) return;
+      if (isAtEnd && scrollingDown) return;
+
+      e.preventDefault();
+      container.scrollLeft += e.deltaY;
     };
 
-    container.addEventListener("wheel", handleWheel, { passive: false });
+    section.addEventListener("wheel", handleWheel, { passive: false });
 
-    return () => container.removeEventListener("wheel", handleWheel);
+    return () => section.removeEventListener("wheel", handleWheel);
   }, []);
 
     const handleScroll = () => {
