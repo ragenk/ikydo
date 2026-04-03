@@ -138,7 +138,7 @@
 }
 
 .about-text.fade-in-boss {
-  animation: stepUp 0.4s steps(4, end) 1.2s forwards;
+  animation: stepUp 0.3s steps(4, end) 0.7s forwards;
 }
 
 .about-text .title {
@@ -155,8 +155,27 @@
 .about p {
   font-size: 0.7rem;
   color: var(--nes-text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1.8;
+}
+
+.dialogue-content {
+  display: inline;
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background-color: var(--nes-warning);
+  vertical-align: middle;
+  margin-left: 4px;
+  margin-bottom: 2px;
+  animation: blinker 0.8s steps(2, start) infinite;
+}
+
+@keyframes blinker {
+  to { opacity: 0; }
 }
 
 @media (min-width: 768px) {

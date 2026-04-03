@@ -22,12 +22,18 @@ header {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Sound left, Hamburger right */
   align-items: center;
   color: var(--nes-text);
-  padding: 1rem 2rem;
+  padding: 1rem;
   position: fixed;
   z-index: 100;
+  width: 100%;
+}
+
+/* Ensure hamburger stays on the right */
+.hamburger {
+  margin-left: auto;
 }
 
 /* Hamburger icon */
@@ -258,6 +264,10 @@ footer > ul > li > a:hover {
   h1 {
     font-size: 4rem;
     letter-spacing: 0.5rem;
+  }
+
+  .navbar {
+    padding: 1rem 3rem; /* Increase horizontal padding on desktop */
   }
 
   footer > ul {
