@@ -16,10 +16,10 @@ function Hero() {
       <h2 className="typed-wrapper fade-in delay-1">
         <ReactTyped
           strings={[
+            "Software Engineer",
             "Front-End Developer",
-            "WordPress and Shopify Specialist",
-            "React Developer",
-            "Automation Builder (n8n)",
+            "AI and Automation Architect",
+            "Systems-Minded Problem Solver",
           ]}
           typeSpeed={50}
           backSpeed={30}
@@ -28,7 +28,7 @@ function Hero() {
       </h2>
 
       <p className="fade-in delay-2">
-        Building modern websites, technical solutions, and smart automations.
+        Engineering scalable web solutions and intelligent automated workflows.
       </p>
 
       <a
