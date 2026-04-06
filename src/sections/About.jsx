@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { soundManager } from "../utils/soundManager";
 import "./About.css";
 import Rafa from "../assets/Rafa-8Bit.png?w=300&format=webp";
@@ -12,6 +12,25 @@ function About() {
   const typingIndexRef = useRef(0);
 
   const fullText = `I AM IKYDO. AN ELECTROMECHANICAL ENGINEER FORGED IN ELECTRONICS, NOW RECODING MY CORE FOR SOFTWARE ARCHITECTURE. FROM CO-FOUNDING ARCUBE SOLUTIONS TO SAFEGUARDING HIGH-TRAFFIC NOC INFRASTRUCTURE, I’VE SPENT YEARS MASTERING THE PIPELINES WHERE DATA MEETS REALITY.\n\nCURRENT PHASE: TRANSCENDING INTERFACES. I AM LEVERAGING SYSTEM RELIABILITY AND MODERN REACT FRAMEWORKS TO UNLOCK THE NEXT LEVEL: MASTER OF SOFTWARE ENGINEERING.`;
+
+  const skipTyping = useCallback(() => {
+    if (typingIndexRef.current < fullText.length) {
+      setDisplayText(fullText);
+      typingIndexRef.current = fullText.length;
+      soundManager.playCoin(); // Use coin sound for successful skip
+    }
+  }, [fullText]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (isEncounter && canType && (e.key === "a" || e.key === "A" || e.key === "Enter")) {
+        skipTyping();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isEncounter, canType, skipTyping]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -105,9 +124,16 @@ function About() {
                   {i < arr.length - 1 && <br />}
                 </span>
               ))}
-              <span className="cursor-blink"></span>
+              {typingIndexRef.current < fullText.length ? (
+                <span className="cursor-blink"></span>
+              ) : null}
             </p>
           </div>
+          {canType && typingIndexRef.current < fullText.length && (
+            <div className="skip-prompt blink" onClick={skipTyping}>
+              PRESS [A] OR TAP TO SKIP
+            </div>
+          )}
         </div>
       </div>
     </section>

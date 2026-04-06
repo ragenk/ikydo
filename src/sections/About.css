@@ -163,6 +163,24 @@
   display: inline;
 }
 
+.skip-prompt {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.5rem;
+  color: var(--nes-warning);
+  cursor: pointer;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed var(--nes-warning);
+  user-select: none;
+}
+
+.skip-prompt:hover {
+  background: var(--nes-warning);
+  color: var(--nes-bg);
+}
+
 .cursor-blink {
   display: inline-block;
   width: 11px;
