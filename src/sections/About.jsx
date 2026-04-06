@@ -11,7 +11,7 @@ function About() {
   const encounterTimeoutRef = useRef(null);
   const typingIndexRef = useRef(0);
 
-  const fullText = `HI, I'M RAFAEL, OR IKYDO ONLINE. I’M A FRONT-END DEVELOPER WITH EXPERIENCE BUILDING PROFESSIONAL WEBSITES USING WORDPRESS, SHOPIFY, AND REACT.\n\nMY WORK ALSO COVERS TECHNICAL INFRASTRUCTURE, INCLUDING DOMAIN SETUP, BUSINESS EMAIL CONFIGURATION, AND WEBSITE MIGRATION.\n\nI CREATE AUTOMATION WORKFLOWS WITH N8N THAT HELP BUSINESSES STREAMLINE OPERATIONS THROUGH SMART AND EFFICIENT INTEGRATIONS.`;
+  const fullText = `I AM IKYDO. AN ELECTROMECHANICAL ENGINEER FORGED IN ELECTRONICS, NOW RECODING MY CORE FOR SOFTWARE ARCHITECTURE. FROM CO-FOUNDING ARCUBE SOLUTIONS TO SAFEGUARDING HIGH-TRAFFIC NOC INFRASTRUCTURE, I’VE SPENT YEARS MASTERING THE PIPELINES WHERE DATA MEETS REALITY.\n\nCURRENT PHASE: TRANSCENDING INTERFACES. I AM LEVERAGING SYSTEM RELIABILITY AND MODERN REACT FRAMEWORKS TO UNLOCK THE NEXT LEVEL: MASTER OF SOFTWARE ENGINEERING.`;
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -71,7 +71,7 @@ function About() {
     }, 40);
 
     return () => clearInterval(interval);
-  }, [canType, isEncounter]);
+  }, [canType, isEncounter, fullText]);
 
   return (
     <section className="about" id="about" ref={ref}>
@@ -84,11 +84,11 @@ function About() {
       <div className="boss-area">
         <div className={`boss-sprite-container ${isEncounter ? "slide-in" : ""}`}>
           <div className="boss-stats">
-            <span className="boss-name">RAFAEL (IKYDO)</span>
+            <span className="boss-name">IKYDO</span>
             <div className="health-bar-container">
               <div className={`health-bar-fill ${isEncounter ? "fill-up" : ""}`}></div>
             </div>
-            <span className="boss-title">LVL 99 DEVELOPER</span>
+            <span className="boss-title">LVL 99 SOFTWARE ARCHITECT</span>
           </div>
           <div className="about-me-pic-container pixel-frame">
             <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
