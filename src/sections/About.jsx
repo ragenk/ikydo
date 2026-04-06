@@ -8,8 +8,16 @@ function About() {
   const [displayText, setDisplayText] = useState("");
   const [isEncounter, setIsEncounter] = useState(false);
   const [canType, setCanType] = useState(false);
+  const [hoveredStat, setHoveredStat] = useState(null);
   const encounterTimeoutRef = useRef(null);
   const typingIndexRef = useRef(0);
+
+  const bossStats = [
+    { id: 'str', label: 'STR: LOGIC', value: 94, desc: 'ENGINEERING CORE. HIGH-LEVEL PROBLEM SOLVING CALIBRATED BY ELECTROMECHANICAL SYSTEMS.' },
+    { id: 'dex', label: 'DEX: FRONT-END', value: 88, desc: 'INTERFACE PRECISION. MASTERING PIXEL-PERFECT LAYOUTS AND REACT-DRIVEN DYNAMICS.' },
+    { id: 'int', label: 'INT: SYSTEMS', value: 98, desc: "ARCHITECT'S VISION. MAXED-OUT FLUENCY IN INFRASTRUCTURE, PROTOCOLS, AND VIRTUALIZED ENVIRONMENTS." },
+    { id: 'luk', label: 'LUK: RESILIENCE', value: 85, desc: 'ADAPTIVE ENGINE. SURVIVAL RATE MAXIMIZED THROUGH ENTREPRENEURIAL PIVOTS AND SYSTEM RECOVERY.' }
+  ];
 
   const fullText = `I AM IKYDO. AN ELECTROMECHANICAL ENGINEER FORGED IN ELECTRONICS, NOW RECODING MY CORE FOR SOFTWARE ARCHITECTURE. FROM CO-FOUNDING ARCUBE SOLUTIONS TO SAFEGUARDING HIGH-TRAFFIC NOC INFRASTRUCTURE, I’VE SPENT YEARS MASTERING THE PIPELINES WHERE DATA MEETS REALITY.\n\nCURRENT PHASE: TRANSCENDING INTERFACES. I AM LEVERAGING SYSTEM RELIABILITY AND MODERN REACT FRAMEWORKS TO UNLOCK THE NEXT LEVEL: MASTER OF SOFTWARE ENGINEERING.`;
 
@@ -112,6 +120,34 @@ function About() {
           <div className="about-me-pic-container pixel-frame">
             <img src={Rafa} alt="Rafa Profile Pic" className="about-me-pic" />
           </div>
+
+          <div className="attributes-window pixel-frame">
+            <div className="stats-list">
+              {bossStats.map((stat) => (
+                <div 
+                  key={stat.id} 
+                  className="stat-row"
+                  onMouseEnter={() => setHoveredStat(stat)}
+                  onMouseLeave={() => setHoveredStat(null)}
+                  onClick={() => setHoveredStat(hoveredStat?.id === stat.id ? null : stat)}
+                >
+                  <div className="stat-label-row">
+                    <span className="stat-label">{stat.label}</span>
+                    <span className="stat-value">[{stat.value}]</span>
+                  </div>
+                  <div className="stat-bar-container">
+                    <div className={`stat-bar-fill ${isEncounter ? "fill-up" : ""}`} style={{ '--target-width': `${stat.value}%` }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="scan-data-box">
+              <span className="scan-title">SCAN DATA:</span>
+              <p className="scan-desc">
+                {hoveredStat ? hoveredStat.desc : "HOVER ATTRIBUTE TO SCAN"}
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className={`pixel-frame about-text ${isEncounter ? "fade-in-boss" : ""}`}>
@@ -132,6 +168,15 @@ function About() {
           {canType && typingIndexRef.current < fullText.length && (
             <div className="skip-prompt blink" onClick={skipTyping}>
               PRESS [A] OR TAP TO SKIP
+            </div>
+          )}
+          {typingIndexRef.current === fullText.length && (
+            <div className="next-level-btn fade-in" onClick={() => {
+              soundManager.playCoin();
+              document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
+            }}>
+              <span>NEXT LEVEL</span>
+              <span className="arrow">▼</span>
             </div>
           )}
         </div>

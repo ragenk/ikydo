@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 1rem;
   max-width: 1000px;
   background-color: var(--nes-bg);
   position: relative;
@@ -14,15 +14,15 @@
 /* ── Boss Encounter Warning ── */
 .boss-warning {
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--nes-primary);
   color: var(--nes-text);
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   z-index: 10;
   border: 4px solid var(--nes-text);
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   text-align: center;
   white-space: nowrap;
   box-shadow: 0 0 20px rgba(229, 37, 33, 0.6);
@@ -33,14 +33,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
   width: 100%;
 }
 
 @media (min-width: 768px) {
+  .about {
+    padding: 4rem 1rem;
+  }
+  .boss-warning {
+    top: 15%;
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+  }
   .boss-area {
     flex-direction: row;
     justify-content: space-around;
+    gap: 3rem;
+  }
+  .boss-sprite-container {
+    gap: 1rem !important;
+  }
+  .attributes-window {
+    margin-top: 1rem !important;
+  }
+  .scan-data-box {
+    min-height: 80px !important;
+  }
+  .about-text {
+    min-height: 250px !important;
   }
 }
 
@@ -49,7 +70,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   opacity: 0;
 }
 
@@ -117,7 +138,7 @@
 }
 
 .about-me-pic {
-  width: 150px;
+  width: 100px;
   image-rendering: pixelated;
   display: block;
   animation: bossIdle 2s infinite ease-in-out;
@@ -128,12 +149,89 @@
   50% { transform: translateY(-8px); }
 }
 
+/* ── Attributes Window ── */
+.attributes-window {
+  width: 100%;
+  max-width: 250px;
+  background-color: var(--nes-bg);
+  padding: 0.5rem !important;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-row {
+  cursor: pointer;
+}
+
+.stat-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.45rem;
+  color: var(--nes-text);
+  margin-bottom: 0.2rem;
+}
+
+.stat-row:hover .stat-label-row {
+  color: var(--nes-primary);
+}
+
+.stat-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: #333;
+  border: 2px solid var(--nes-text);
+  position: relative;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--nes-warning);
+  box-shadow: inset -2px 0 0 var(--nes-bg);
+}
+
+.stat-bar-fill.fill-up {
+  animation: fillStat 1.2s steps(20, end) 0.5s forwards;
+}
+
+@keyframes fillStat {
+  to { width: var(--target-width); }
+}
+
+.scan-data-box {
+  border-top: 2px dashed #555;
+  padding-top: 0.5rem;
+  min-height: 60px;
+}
+
+.scan-title {
+  font-size: 0.4rem;
+  color: var(--nes-success);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.scan-desc {
+  font-size: 0.45rem !important;
+  color: var(--nes-text);
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
 /* ── Dialogue Box (System Log) ── */
 .about-text {
   width: 100%;
   max-width: 600px;
-  min-height: 250px;
-  padding: 1.5rem !important;
+  min-height: 180px;
+  padding: 1rem !important;
   opacity: 0;
 }
 
@@ -179,6 +277,49 @@
 .skip-prompt:hover {
   background: var(--nes-warning);
   color: var(--nes-bg);
+}
+
+.next-level-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.6rem;
+  color: var(--nes-success);
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 4px solid var(--nes-success);
+  background: var(--nes-bg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  animation: slideUpFade 0.5s ease-out forwards;
+}
+
+.next-level-btn:hover {
+  background: var(--nes-success);
+  color: var(--nes-bg);
+}
+
+.next-level-btn .arrow {
+  font-size: 0.5rem;
+  animation: bounceDown 1s infinite alternate;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(4px); }
 }
 
 .cursor-blink {
