@@ -14,8 +14,8 @@ function App() {
       <div className="snap-container">
         <Hero />
         <About />
-        <Projects />
         <Skills />
+        <Projects />
         <Contact />
       </div>
     </>

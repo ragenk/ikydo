@@ -134,6 +134,15 @@ function About() {
               PRESS [A] OR TAP TO SKIP
             </div>
           )}
+          {typingIndexRef.current === fullText.length && (
+            <div className="next-level-btn fade-in" onClick={() => {
+              soundManager.playCoin();
+              document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
+            }}>
+              <span>NEXT LEVEL</span>
+              <span className="arrow">▼</span>
+            </div>
+          )}
         </div>
       </div>
     </section>
