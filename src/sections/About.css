@@ -33,8 +33,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 100%;
+  max-width: 400px; /* Solid content pillar for mobile */
 }
 
 @media (min-width: 768px) {
@@ -50,6 +51,7 @@
     flex-direction: row;
     justify-content: space-around;
     gap: 3rem;
+    max-width: 1000px;
   }
   .boss-sprite-container {
     gap: 1rem !important;
@@ -70,8 +72,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   opacity: 0;
+  width: 100%; 
 }
 
 .boss-sprite-container.slide-in {
@@ -93,7 +96,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 200px;
+  width: 100%;
 }
 
 .boss-name {
@@ -135,10 +138,12 @@
   padding: 0.5rem;
   background-color: var(--nes-bg);
   box-shadow: 4px 4px 0 var(--nes-primary);
+  width: fit-content;
+  margin: 0.5rem 0;
 }
 
 .about-me-pic {
-  width: 100px;
+  width: 120px;
   image-rendering: pixelated;
   display: block;
   animation: bossIdle 2s infinite ease-in-out;
@@ -152,9 +157,8 @@
 /* ── Attributes Window ── */
 .attributes-window {
   width: 100%;
-  max-width: 250px;
   background-color: var(--nes-bg);
-  padding: 0.5rem !important;
+  padding: 0.75rem !important;
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -209,7 +213,7 @@
 .scan-data-box {
   border-top: 2px dashed #555;
   padding-top: 0.5rem;
-  min-height: 60px;
+  min-height: 70px;
 }
 
 .scan-title {
@@ -229,7 +233,6 @@
 /* ── Dialogue Box (System Log) ── */
 .about-text {
   width: 100%;
-  max-width: 600px;
   min-height: 180px;
   padding: 1rem !important;
   opacity: 0;
@@ -251,7 +254,7 @@
 }
 
 .about p {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--nes-text);
   margin-bottom: 0.5rem;
   line-height: 1.8;
@@ -265,7 +268,7 @@
   position: absolute;
   bottom: 10px;
   right: 15px;
-  font-size: 0.5rem;
+  font-size: 0.45rem;
   color: var(--nes-warning);
   cursor: pointer;
   padding: 4px 8px;
@@ -283,7 +286,7 @@
   position: absolute;
   bottom: 10px;
   right: 15px;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: var(--nes-success);
   cursor: pointer;
   padding: 6px 12px;
@@ -324,8 +327,8 @@
 
 .cursor-blink {
   display: inline-block;
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   background-color: var(--nes-warning);
   vertical-align: middle;
   margin-left: 4px;
@@ -341,4 +344,9 @@
   .boss-name { font-size: 0.8rem; }
   .boss-title { font-size: 0.6rem; }
   .about-me-pic { width: 200px; }
+  .boss-stats { width: 250px; }
+  .attributes-window { width: 300px; }
+  .about-text { max-width: 600px; }
+  .about p { font-size: 0.7rem; }
+  .cursor-blink { width: 11px; height: 11px; }
 }
