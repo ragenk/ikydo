@@ -1,3 +1,5 @@
+import React from 'react';
+
 const CATEGORY_COLORS = {
   "Front-End": "#82d4ff",
   "CMS": "#f9c74f",
@@ -6,13 +8,25 @@ const CATEGORY_COLORS = {
   "Tools": "#c77dff",
 };
 
-function SkillIcon({ name, category }) {
+const SkillIcon = React.forwardRef(({ name, category, active, dimmed, onMouseEnter, onMouseLeave }, ref) => {
   const color = CATEGORY_COLORS[category] ?? "#82d4ff";
+  
+  let className = "skill-icon";
+  if (active) className += " active";
+  if (dimmed) className += " dimmed";
+
   return (
-    <div className="skill-icon" style={{ "--skill-color": color }}>
+    <div 
+      className={className} 
+      style={{ "--skill-color": color }}
+      ref={ref}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {name}
     </div>
   );
-}
+});
 
 export default SkillIcon;
+
