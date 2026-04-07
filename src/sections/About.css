@@ -344,7 +344,8 @@
   .boss-name { font-size: 0.8rem; }
   .boss-title { font-size: 0.6rem; }
   .about-me-pic { width: 200px; }
-  .boss-stats { width: 250px; }
+  .boss-sprite-container { width: auto; }
+  .boss-stats { width: 300px; }
   .attributes-window { width: 300px; }
   .about-text { max-width: 600px; }
   .about p { font-size: 0.7rem; }
