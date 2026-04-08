@@ -19,6 +19,7 @@ function Skills() {
   const nodeRefs = useRef({});
   const [lines, setLines] = useState([]);
   const [hoveredNode, setHoveredNode] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   // Set intersection observer
   useEffect(() => {
@@ -34,6 +35,8 @@ function Skills() {
   const updateLines = useCallback(() => {
     if (!containerRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
+    const scrollLeft = containerRef.current.scrollLeft;
+    const scrollTop = containerRef.current.scrollTop;
     
     const newLines = [];
     skills.forEach(skill => {
@@ -41,20 +44,16 @@ function Skills() {
       if (!childEl) return;
 
       const childRect = childEl.getBoundingClientRect();
-      const childX = childRect.left - containerRect.left;
-      const childY = childRect.top - containerRect.top;
-      const childCenterX = childX + childRect.width / 2;
-      const childCenterY = childY + childRect.height / 2;
+      const childCenterX = (childRect.left - containerRect.left) + scrollLeft + childRect.width / 2;
+      const childCenterY = (childRect.top - containerRect.top) + scrollTop + childRect.height / 2;
 
       (skill.requires || []).forEach(parentId => {
         const parentEl = nodeRefs.current[parentId];
         if (!parentEl) return;
 
         const parentRect = parentEl.getBoundingClientRect();
-        const parentX = parentRect.left - containerRect.left;
-        const parentY = parentRect.top - containerRect.top;
-        const parentCenterX = parentX + parentRect.width / 2;
-        const parentCenterY = parentY + parentRect.height / 2;
+        const parentCenterX = (parentRect.left - containerRect.left) + scrollLeft + parentRect.width / 2;
+        const parentCenterY = (parentRect.top - containerRect.top) + scrollTop + parentRect.height / 2;
 
         newLines.push({
           id: `${parentId}-${skill.id}`,
@@ -72,15 +71,33 @@ function Skills() {
   }, []);
 
   useLayoutEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      updateLines();
+    };
+
+    // Use ResizeObserver to catch layout shifts from flex-wrap
+    const resizeObserver = new ResizeObserver(() => {
+      updateLines();
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+      // Also observe the inner wrapper to catch wrap changes
+      const wrapper = containerRef.current.querySelector('.tiers-wrapper');
+      if (wrapper) resizeObserver.observe(wrapper);
+    }
+
     // Delay slightly to ensure layout and fonts have fully rendered before measuring
     const timer = setTimeout(() => {
       updateLines();
-    }, 100);
+    }, 200);
     
-    window.addEventListener('resize', updateLines);
+    window.addEventListener('resize', handleResize);
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('resize', updateLines);
+      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
     };
   }, [updateLines]);
 
@@ -133,12 +150,19 @@ function Skills() {
           {lines.map(line => {
             // Draw an orthogonal line (stair-step)
             // Midpoint for the horizontal or vertical break
-            const midX = line.x1 + (line.x2 - line.x1) / 2;
             const isHovered = activeNodes.has(line.child) && activeNodes.has(line.parent);
             const lineClass = isHovered ? "tree-line active" : hoveredNode ? "tree-line dimmed" : "tree-line";
             
-            // D path: move to start, line to midX on startY, line to midX on endY, line to end
-            const d = `M ${line.x1} ${line.y1} L ${midX} ${line.y1} L ${midX} ${line.y2} L ${line.x2} ${line.y2}`;
+            let d;
+            if (isMobile) {
+              // Vertical stair-step (for mobile)
+              const midY = line.y1 + (line.y2 - line.y1) / 2;
+              d = `M ${line.x1} ${line.y1} L ${line.x1} ${midY} L ${line.x2} ${midY} L ${line.x2} ${line.y2}`;
+            } else {
+              // Horizontal stair-step (for desktop)
+              const midX = line.x1 + (line.x2 - line.x1) / 2;
+              d = `M ${line.x1} ${line.y1} L ${midX} ${line.y1} L ${midX} ${line.y2} L ${line.x2} ${line.y2}`;
+            }
             
             return (
               <path

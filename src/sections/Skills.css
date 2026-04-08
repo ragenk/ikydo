@@ -20,13 +20,15 @@
 .skill-tree-container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   background-color: var(--nes-bg);
-  padding: 2rem 1rem;
-  overflow-x: auto; /* Allow horizontal scroll on mobile */
+  padding: 3.5rem 0.5rem 1.5rem;
+  display: flex; /* Override pixel-frame inline-block */
+  flex-direction: column;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  min-height: 400px; /* Prevent collapse */
 }
 
 .skill-tree-container.visible {
@@ -74,37 +76,44 @@
 /* ── Nodes & Layout ── */
 .tiers-wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  min-width: 700px; /* Force minimum width to prevent squishing on mobile */
-  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4.5rem; /* More space for stair-step lines on mobile */
   position: relative;
   z-index: 2; /* Above lines */
+  width: 100%;
 }
 
 .tier-column {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  flex: 1;
+  gap: 1.25rem;
+  width: 100%;
   position: relative;
 }
 
 .tier-label {
   position: absolute;
-  top: -2rem;
-  font-size: 0.5rem;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.55rem;
   color: var(--nes-text);
-  letter-spacing: 0.1em;
-  opacity: 0.7;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+  white-space: nowrap;
+  background: var(--nes-bg);
+  padding: 0 0.5rem;
 }
 
 /* ── Individual Skill Icon (Override) ── */
 .skill-icon {
   display: inline-block;
-  padding: 8px 12px;
+  padding: 8px 10px;
   font-size: 0.5rem;
   color: var(--skill-color, var(--nes-text));
   background: var(--nes-bg);
@@ -117,7 +126,7 @@
   transition: background 0.2s, color 0.2s, transform 0.1s, opacity 0.2s;
   cursor: pointer;
   text-align: center;
-  min-width: 110px;
+  min-width: 100px;
   user-select: none;
 }
 
@@ -146,11 +155,22 @@
     padding: 3rem;
   }
   .tiers-wrapper {
-    min-width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
     gap: 4rem;
+    min-width: 100%;
+  }
+  .tier-column {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1;
+    gap: 2.5rem;
   }
   .tier-label {
+    top: -2.2rem;
     font-size: 0.6rem;
+    left: 50%;
   }
   .skill-icon {
     font-size: 0.6rem;
